@@ -223,7 +223,7 @@ $("#feed-add-post-image").change(function () {
             },
             success: function (response)   // A function to be called if request succeeds
             {
-                $('#image-post-btn').val('image-post');
+                $('#image-post-btn').val('post-image');
                 if (response.statusCode == 200) {
                     $('#add-post-feed-form')[0].reset();
                     $('.alert-message')
@@ -277,5 +277,119 @@ $("#feed-add-post-image").change(function () {
             // $('#change-password-btn').val('SAVE PASSWORD');
         }
     });*/
+
+    function getPostFeedListFunc() {
+        $.ajax({
+            url: 'http://localhost/entertainer/Api/post.php?api=ADD_POST_FEED_IMAGE_LIST',
+            type: 'GET',
+            dataType: 'JSON',
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                if (response.statusCode == 200) {
+                    var posts = '';
+                    $.each(response.items, function (index, item) {
+                        posts += ' <div class="popular">\n' +
+                            '                    <div class="row">\n' +
+                            '                        <div class="col-xl-12 col-lg-12 col-md-12">\n' +
+                            '                            <div class="row">\n' +
+                            '                                <div class="col-xl-2 col-lg-2 col-md-2">\n' +
+                            '                                    <a href="#" class="img">\n' +
+                            '                                        <img src="img/post-image.jpg" alt="logo" class="rounded-circle"\n' +
+                            '                                             width="40px"\n' +
+                            '                                             height="40px">\n' +
+                            '                                    </a>\n' +
+                            '                                </div>\n' +
+                            '                                <div class="col-xl-8 col-lg-8 col-md-8 mt-2">\n' +
+                            '                                    <a href="#"><h5>' + item.title + '</h5></a>\n' +
+                            '                                    <p>' + item.created_at + ' <i class="fa fa-user-clock"></i></p>\n' +
+                            '                                </div>\n' +
+                            '                                <div class="col-xl-2 col-lg-2 col-md-2 mt-2 post-actions-btn">\n' +
+                            '                                    <a href="#">\n' +
+                            '                                        <i class="fa fa-ellipsis-h"></i>\n' +
+                            '                                    </a>\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '\n' +
+                            '                        <div class="col-xl-12 col-lg-12 col-md-12 post-image">\n' +
+                            '                            <a href="#">\n' +
+                            '                                <!--<img src="img/post-image.jpg" alt="post image" width="100%">-->\n' +
+                            '                            </a>\n' +
+                            '                            <p class="p" style="padding: 30px">' + item.image + '</p>\n' +
+                            '                        </div>\n' +
+                            '                        <hr>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="bottom-wrapper" id="inner">\n' +
+                            '                        <div class="row">\n' +
+                            '                            <div class="col-xl-6 col-lg-6 col-md-6 text-center">\n' +
+                            '                                <a href="#">\n' +
+                            '                                    <h6 style="color: #8e8c8c;"><i class="fa fa-thumbs-up"\n' +
+                            '                                                                   style="color: #1685fa"></i>\n' +
+                            '                                        <i class="fa fa-heart" style="color: #f33636"></i>\n' +
+                            '                                        <i class="fa fa-smile" style="color: #F1C40F"></i> 22</h6>\n' +
+                            '                                </a>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="col-xl-6 col-lg-6 col-md-6 text-center">\n' +
+                            '                                <a href="#">\n' +
+                            '                                    <h6 style="color: #8e8c8c;"> 22 Comments</h6>\n' +
+                            '                                </a>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                    <hr>\n' +
+                            '                    <div class="inner-bottom">\n' +
+                            '                        <div class="row">\n' +
+                            '                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">\n' +
+                            '                                <a href="#">\n' +
+                            '                                    <h6 style="color: #8e8c8c"><i class="fa fa-thumbs-up"\n' +
+                            '                                                                  style="color: #1685fa;"></i>\n' +
+                            '                                        Like</h6>\n' +
+                            '                                </a>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">\n' +
+                            '                                <a href="#">\n' +
+                            '                                    <h6 style="color: #8e8c8c;"><i class="fa fa-comment-dots"\n' +
+                            '                                                                   style="color: rgba(116,111,111,0.98)"></i>\n' +
+                            '                                        Comment\n' +
+                            '                                    </h6>\n' +
+                            '                                </a>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">\n' +
+                            '                                <a href="#">\n' +
+                            '                                    <h6 style="color: #8e8c8c;"><i class="fa fa-share-square"\n' +
+                            '                                                                   style="color: #1685fa;"></i> Share\n' +
+                            '                                    </h6>\n' +
+                            '                                </a>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                    <hr>\n' +
+                            '                    <div class="comments">\n' +
+                            '                        <div class="row">\n' +
+                            '                            <div class="col-xl-2 col-lg-2 col-md-2 mb-2">\n' +
+                            '                                <a href="#">\n' +
+                            '                                    <img src="img/logo.jpg" class="rounded-circle" width="50%" alt="profile">\n' +
+                            '                                </a>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="col-xl-10 col-lg-10 col-md-10 ">\n' +
+                            '                                <div class="input-group pr-2 pl-2">\n' +
+                            '                                    <input type="text" class="form-control" name="search-title"\n' +
+                            '                                           placeholder="Write a comment...">\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                    </div>\n' +
+                            '                </div>';
+                    });
+
+                    $('.get-post-feed-list-wrapper').html(posts);
+                } else {
+                    alert('Error');
+                }
+            }
+        });
+    }
 
 });

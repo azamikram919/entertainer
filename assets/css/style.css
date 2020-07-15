@@ -557,7 +557,7 @@ nav#pagination {
 .pagination li a {
     color: #24A7CF;
     padding: 15px 20px;
-    font-size: 20px;
+    font-size: 10px;
 }
 
 @media (max-width: 1040px) {

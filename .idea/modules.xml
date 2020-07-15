@@ -7,6 +7,9 @@
       <module fileurl="file://$PROJECT_DIR$/../cms1/.idea/cms.iml" filepath="$PROJECT_DIR$/../cms1/.idea/cms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../crud/.idea/crud.iml" filepath="$PROJECT_DIR$/../crud/.idea/crud.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/entertainer.iml" filepath="$PROJECT_DIR$/.idea/entertainer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../oop2/.idea/oop2.iml" filepath="$PROJECT_DIR$/../oop2/.idea/oop2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sidebar/.idea/sidebar.iml" filepath="$PROJECT_DIR$/../sidebar/.idea/sidebar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../text/.idea/text.iml" filepath="$PROJECT_DIR$/../text/.idea/text.iml" />
       <module fileurl="file://$PROJECT_DIR$/../web/.idea/web.iml" filepath="$PROJECT_DIR$/../web/.idea/web.iml" />
     </modules>
   </component>

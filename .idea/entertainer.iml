@@ -10,5 +10,8 @@
     <orderEntry type="module" module-name="clock" />
     <orderEntry type="module" module-name="crud" />
     <orderEntry type="module" module-name="cms" />
+    <orderEntry type="module" module-name="text" />
+    <orderEntry type="module" module-name="sidebar" />
+    <orderEntry type="module" module-name="oop2" />
   </component>
 </module>
