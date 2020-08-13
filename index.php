@@ -20,7 +20,26 @@ if (empty($_SESSION['email']) && empty($_SESSION['password']) && empty($_SESSION
     <title>Facebook</title>
 </head>
 <body>
-<?php require_once 'inc/navbar.php' ?>
+
+<?php require_once 'inc/navbar.php';
+
+/*$record_per_page = 8;
+$page = '';
+$output = '';
+if (isset($_GET["page"])) {
+    $page = $_GET["page"];
+} else {
+    $page = 1;
+}
+$start_from = ($page - 1) * $record_per_page;
+$page_query = "SELECT * FROM post ORDER BY id DESC";
+$page_result = mysqli_query($con, $page_query);
+$total_records = mysqli_num_rows($page_result);
+$total_pages = ceil($total_records / $record_per_page);*/
+
+?>
+
+
 <section>
     <div class="container-fluid">
         <div class="row ">
@@ -108,19 +127,36 @@ if (empty($_SESSION['email']) && empty($_SESSION['password']) && empty($_SESSION
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-<!--                                                            <img src="img/post-image.jpg" class="feed-mode-image-display" alt="post image">-->
+                                                            <img src="" class="feed-mode-image-display"
+                                                                 alt="post image">
                                                         </div><!--main image-->
                                                         <div class="modal-footer">
-                                                            <h3>Add To Your Post</h3>
+                                                            <!--<h3>Add To Your Post</h3>-->
                                                             <div class="image-upload">
                                                                 <label for="feed-add-post-image">
-                                                                    <i class="fa fa-file-image"
-                                                                       style="cursor:pointer; font-size: 25px; color: #f1b0b7;"></i>
-                                                                    <input id="feed-add-post-image" type="file" name="file"
+                                                                    <img src="img/add-post.png"
+                                                                         style="width: 70%; margin-right: 20%; cursor:pointer; margin-top: -0;"
+                                                                         alt="add-image">
+
+                                                                    <input id="feed-add-post-image" type="file"
+                                                                           name="file"
                                                                            style="display: none;"/>
                                                                 </label>
                                                             </div>
+
+                                                            <div class="image-upload">
+                                                                <label for="feed-add-post-image"
+                                                                <i class="fa fa-file-image"
+                                                                   style="cursor:pointer; font-size: 25px; color: #f1b0b7;"></i>
+                                                                <input id="feed-add-post-image" type="file"
+                                                                       name="file"
+                                                                       style="display: none;"/>
+
+                                                                </label>
+                                                            </div>
+
                                                         </div>
+
                                                         <button type="button" name="" id="image-post-btn"
                                                                 class="btn btn-primary" value="image-post">Post
                                                         </button>
@@ -172,106 +208,11 @@ if (empty($_SESSION['email']) && empty($_SESSION['password']) && empty($_SESSION
                     </form>
                 </div><!--close post area-->
 
+                <span style="display: none;" id="user_id" user_id="<?php echo $_SESSION['user_id'] ?>"></span>
                 <div class="get-post-feed-list-wrapper">
 
                 </div>
 
-                <!--<div class="popular">
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12">
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-2 col-md-2">
-                                    <a href="#" class="img">
-                                        <img src="img/post-image.jpg" alt="logo" class="rounded-circle" width="40px"
-                                             height="40px">
-                                    </a>
-                                </div>
-                                <div class="col-xl-8 col-lg-8 col-md-8 mt-2">
-                                    <h5>Haji is new Post</h5>
-                                    <p> july 12 at 2:35 PM <i class="fa fa-user-clock"></i></p>
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-2 mt-2 post-actions-btn">
-                                    <a href="#">
-                                        <i class="fa fa-ellipsis-h"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12 col-md-12 post-image">
-                            <a href="#">
-                                <img src="img/post.jpg" alt="post image" width="100%">
-                            </a>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="bottom-wrapper" id="inner">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 text-center">
-                                <a href="#">
-                                    <h6 style="color: #8e8c8c;"><i class="fa fa-thumbs-up" style="color: #1685fa"></i>
-                                        <i class="fa fa-heart" style="color: #f33636"></i>
-                                        <i class="fa fa-smile" style="color: #e3cf1b"></i> 22</h6>
-                                </a>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 text-center">
-                                <a href="#">
-                                    <h6 style="color: #8e8c8c;"> 22 Comments</h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="inner-bottom">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">
-                                <a href="#">
-                                    <h6 style="color: #8e8c8c"><i class="fa fa-thumbs-up" style="color: #1685fa;"></i>
-                                        Like</h6>
-                                </a>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">
-                                <a href="#">
-                                    <h6 style="color: #8e8c8c;"><i class="fa fa-comment-dots"
-                                                                   style="color: #1685fa"></i> Comment
-                                    </h6>
-                                </a>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">
-                                <a href="#">
-                                    <h6 style="color: #8e8c8c;"><i class="fa fa-share-square"
-                                                                   style="color: #1685fa;"></i> Share
-                                    </h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="comments">
-                        <div class="row">
-                            <div class="col-xl-2 col-lg-2 col-md-2 mb-2">
-                                <a href="#">
-                                    <img src="img/logo.jpg" class="rounded-circle" width="50%" alt="profile">
-                                </a>
-                            </div>
-                            <div class="col-xl-10 col-lg-10 col-md-10 ">
-                                <div class="input-group pr-2 pl-2">
-                                    <input type="text" class="form-control" name="search-title"
-                                           placeholder="Write a comment...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>--><!--close popular area-->
-                <nav id="pagination">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
             </div><!--close md-6-->
             <?php require_once 'inc/right_sidebar.php' ?>
         </div>

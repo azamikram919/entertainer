@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../404/.idea/404.iml" filepath="$PROJECT_DIR$/../404/.idea/404.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cms/.idea/CMS1.iml" filepath="$PROJECT_DIR$/../cms/.idea/CMS1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../clock/.idea/clock.iml" filepath="$PROJECT_DIR$/../clock/.idea/clock.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cms1/.idea/cms.iml" filepath="$PROJECT_DIR$/../cms1/.idea/cms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../crud/.idea/crud.iml" filepath="$PROJECT_DIR$/../crud/.idea/crud.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/entertainer.iml" filepath="$PROJECT_DIR$/.idea/entertainer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../icon/.idea/icon.iml" filepath="$PROJECT_DIR$/../icon/.idea/icon.iml" />
       <module fileurl="file://$PROJECT_DIR$/../oop2/.idea/oop2.iml" filepath="$PROJECT_DIR$/../oop2/.idea/oop2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../panel/.idea/panel.iml" filepath="$PROJECT_DIR$/../panel/.idea/panel.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sidebar/.idea/sidebar.iml" filepath="$PROJECT_DIR$/../sidebar/.idea/sidebar.iml" />
       <module fileurl="file://$PROJECT_DIR$/../text/.idea/text.iml" filepath="$PROJECT_DIR$/../text/.idea/text.iml" />
       <module fileurl="file://$PROJECT_DIR$/../web/.idea/web.iml" filepath="$PROJECT_DIR$/../web/.idea/web.iml" />

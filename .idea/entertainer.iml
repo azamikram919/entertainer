@@ -13,5 +13,8 @@
     <orderEntry type="module" module-name="text" />
     <orderEntry type="module" module-name="sidebar" />
     <orderEntry type="module" module-name="oop2" />
+    <orderEntry type="module" module-name="404" />
+    <orderEntry type="module" module-name="panel" />
+    <orderEntry type="module" module-name="icon" />
   </component>
 </module>

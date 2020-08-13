@@ -20,7 +20,7 @@
                 </div>
             </div>
         </form>
-        <ul class="navbar-nav m-auto">
+        <ul class="navbar-nav mr-auto" style="margin-left: 8%; ">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php"><span class="sr-only">(current)</span>
                     <i class="fa fa-home"></i> Home
@@ -43,6 +43,11 @@
             </li>
         </ul>
         <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="https://github.com/azamikram919" class="nav-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fa fa-plus-square" aria-hidden="true"></i>
