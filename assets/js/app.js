@@ -414,7 +414,7 @@ $(document).on('click', '.feed-like', function () {
                     //$post.siblings().removeClass('hide');
                 }
                 else {
-                    alert(response.message)
+                    // alert(response.message)
                 }
 
             }

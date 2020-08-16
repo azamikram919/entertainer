@@ -62,9 +62,6 @@
 
                     <div class="row nav">
                         <div class="col-xs-2">
-                            <a href="#">
-                                <img src="img/logo.jpg" alt="profile">
-                            </a>
                         </div>
                         <div class="col-xs-10"></div>
                     </div>
