@@ -73,9 +73,15 @@ else if (isset($_GET['api']) && $_GET['api'] == 'GET_POST_FEED_LIST') {
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $response = $result = null;
-//        $query = "SELECT * FROM `post` ORDER BY id DESC";
-        $query = "SELECT * FROM `post` INNER JOIN `likes` ON post.id = likes.post_id ";
+
+        //       $query = "SELECT * FROM `post` ORDER BY id DESC";
+        $query = "SELECT post.id as post_id,post.title as post_title,
+post.description as post_description,post.image as post_image,
+post.user_id as post_user_id,post.created_at as post_created_at,likes.id as like_id FROM `post` LEFT JOIN `likes` ON likes.post_id = post.id ORDER BY post.id DESC";
+
+
         $run = mysqli_query($con, $query);
+
         if (mysqli_num_rows($run) > 0) {
 
             while ($row = mysqli_fetch_assoc($run)) {

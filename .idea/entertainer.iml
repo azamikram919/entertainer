@@ -16,5 +16,7 @@
     <orderEntry type="module" module-name="404" />
     <orderEntry type="module" module-name="panel" />
     <orderEntry type="module" module-name="icon" />
+    <orderEntry type="module" module-name="ecomerce" />
+    <orderEntry type="module" module-name="dash_side" />
   </component>
 </module>

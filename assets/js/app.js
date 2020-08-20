@@ -119,9 +119,13 @@ function getPostFeedListFunc() {
                 var posts = '';
                 $.each(response.items, function (index, item) {
                     var post_image = '';
-                    if (item.image !== undefined && item.image !== null && item.image !== '') {
-                        post_image += '<img src="' + base_url + item.image + '" alt="post image" width="100%" class="m-0">';
+                    if (item.post_image !== undefined && item.post_image !== null && item.post_image !== '') {
+                        post_image += '<img src="' + base_url + item.post_image + '" alt="post image" width="100%" class="m-0">';
 
+                    }
+                    var like_color = '8e8c8c';
+                    if (item.like_id !== undefined && item.like_id !== null && item.like_id !== '') {
+                        like_color = '1685FA';
                     }
                     posts += ' <div class="popular">\n' +
                         '                    <div class="row">\n' +
@@ -135,8 +139,8 @@ function getPostFeedListFunc() {
                         '                                    </a>\n' +
                         '                                </div>\n' +
                         '                                <div class="col-xl-8 col-lg-8 col-md-8 mt-2">\n' +
-                        '                                    <a href="#"><h5>' + item.title + '</h5></a>\n' +
-                        '                                    <p>' + item.created_at + ' <i class="fa fa-user-clock"></i></p>\n' +
+                        '                                    <a href="#"><h5>' + item.post_title + '</h5></a>\n' +
+                        '                                    <p>' + item.post_created_at + ' <i class="fa fa-user-clock"></i></p>\n' +
                         '                                </div>\n' +
                         '                                <div class="col-xl-2 col-lg-2 col-md-2 mt-2 post-actions-btn">\n' +
                         '                                    <a href="#">\n' +
@@ -150,7 +154,7 @@ function getPostFeedListFunc() {
                         '                            <a href="#">\n' +
                         post_image +
                         '                            </a>\n' +
-                        '                            <p class="p" style="padding: 30px">' + item.description + '</p>\n' +
+                        '                            <p class="p" style="padding: 30px">' + item.post_description + '</p>\n' +
                         '                        </div>\n' +
                         '                        <hr>\n' +
                         '                    </div>\n' +
@@ -177,8 +181,8 @@ function getPostFeedListFunc() {
                         '                        <div class="row">\n' +
                         '                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">\n' +
 
-                        '                                <a href="javascript:void(0)" class="feed-like" post_id="' + item.id + '">\n' +
-                        '                                    <h6 style="color: #8e8c8c" class="like"> <i class="fa fa-thumbs-up"\n' +
+                        '                                <a href="javascript:void(0)" class="feed-like" post_id="' + item.post_id + '">\n' +
+                        '                                    <h6 style="color: #' + like_color + '" class="like"> <i class="fa fa-thumbs-up"\n' +
                         '                                                                  style="color: ;"></i>\n' +
                         '                                        Like</h6>\n' +
                         '                                </a>\n' +
@@ -413,17 +417,21 @@ $(document).on('click', '.feed-like', function () {
                     //$post.addClass('hide');
                     //$post.siblings().removeClass('hide');
                 }
-                else {
-                    // alert(response.message)
-                }
-
             }
         });
 
-        // $(".feed-like").click(function (event) {
-        //     $('.like').css("color", "#1685FA");
-        // });
+        /*$(".feed-like").click(function (event) {
+         $('.like').css("color", "#1685FA");
+         });*/
 
+        $(".feed-like").click(function (response) {
+            if (response.statusCode == 200) {
+
+                $(".feed-like").css("color", "#1685FA");
+            } else {
+                alert('You Already Liked the Post')
+            }
+        });
 
     }
 
