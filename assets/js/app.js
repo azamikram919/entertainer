@@ -420,10 +420,6 @@ $(document).on('click', '.feed-like', function () {
             }
         });
 
-        /*$(".feed-like").click(function (event) {
-         $('.like').css("color", "#1685FA");
-         });*/
-
         $(".feed-like").click(function (response) {
             if (response.statusCode == 200) {
 
