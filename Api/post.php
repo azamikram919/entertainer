@@ -30,13 +30,6 @@ if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED') {
             $insert_query = "INSERT INTO `post`(`title`, `description`,  `user_id`)
                              VALUES ('$title',  '$description',  '$user_id')";
 
-//            $run = mysqli_query("INSERT INTO `likes` (`user_id`, `post_id`) VALUE ('$user_id', '$last_id')");
-
-//            $like_query = "INSERT INTO `likes`(`post_id`, `user_i  d`, `likes`)
-//                            VALUE ('$last_id', '$user_id', '$likes')";
-
-//            echo $like_query($run);
-//            exit();
 
             if ($run = mysqli_query($con, $insert_query) === TRUE) {
 
@@ -247,6 +240,7 @@ else if (isset($_GET['api']) && $_GET['api'] == 'GET_POST_FEED_LIST') {
 
 }*/
 
+
 else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     $response = null;
 
@@ -302,26 +296,24 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     echo json_encode($response);
     exit();
 
-} /*else if (isset($_GET['api']) && $_GET['api'] == 'ADD_GET_POST_LIKES') {
+} else if (isset($_GET['api']) && $_GET['api'] == 'ADD_GET_PEOPLE') {
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $response = null;
+        $response = $items = null;
 
-        $query = "SELECT * FROM `likes`";
+        $query = "SELECT * FROM `user` WHERE id != '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
         $run = mysqli_query($con, $query);
-
-        if (mysqli_num_rows($run)) {
+        if (mysqli_num_rows($run) > 0) {
 
             while ($row = mysqli_fetch_assoc($run)) {
-                $result[] = $row;
+                $items[] = $row;
             }
-
             $response['status'] = 'Success';
-            $response['items'] = $run;
+            $response['items'] = $items;
             $response['statusCode'] = 200;
         } else {
             $response['status'] = 'Error';
-            $response['message'] = 'Not Found.';
+            $response['message'] = 'Peoples Not Found.';
             $response['statusCode'] = 404;
         }
     } else {
@@ -332,34 +324,34 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     echo json_encode($response);
     exit();
 
-}
+} else if (isset($_GET['api']) && $_GET['api'] == 'EDIT_LOGED_IN_USER_PROFILE_DATA') {
 
-/*else if(isset($_GET['api']) == 'ADD_POST_FEED_LIKES'){
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $response = $items = null;
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $response = 'null';
-
-        if (isset($_POST['like'])) {
-            $post_id = $_POST['post_id'];
-            $result = mysqli_query($con, "SELECT * FROM likes WHERE id=$post_id");
-            $row = mysqli_fetch_array($result);
-            $n = $row['likes'];
+        $edit_profile = "SELECT * FROM `user` WHERE id= '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
+        $run = mysqli_query($con, $edit_profile);
 
 
-
-
-            echo $n+1;
-            exit();
+        if (mysqli_num_rows($run)) {
+            while ($row = mysqli_fetch_assoc($run)) {
+                $items[] = $row;
+            }
+            $response['status'] = 'Profile Edit';
+            $response['message'] = $items;
+            $response['statusCode'] = 200;
+        } else {
+            $response['status'] = 'Error';
+            $response['message'] = 'Profile Not Edit.';
+            $response['statusCode'] = 404;
         }
 
-    }else {
+    } else {
         $response['status'] = 'Error';
-        $response['message'] = 'Not Found.';
-        $response['statusCode'] = 404;
+        $response['message'] = 'Not Found';
+        $response['statusCode'] = '404';
     }
     echo json_encode($response);
     exit();
-
-}*/
-
+}
 ?>

@@ -182,7 +182,7 @@ function getPostFeedListFunc() {
                         '                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">\n' +
 
                         '                                <a href="javascript:void(0)" class="feed-like" post_id="' + item.post_id + '">\n' +
-                        '                                    <h6 style="color: #' + like_color + '" class="like"> <i class="fa fa-thumbs-up"\n' +
+                        '                                    <h6 style="color: ' + like_color + '" class="like"> <i class="fa fa-thumbs-up"\n' +
                         '                                                                  style="color: ;"></i>\n' +
                         '                                        Like</h6>\n' +
                         '                                </a>\n' +
@@ -315,81 +315,6 @@ $("#feed-add-post-image").change(function () {
 });
 
 
-/*$(document).ready(function() {
- load_data();
-
- function load_data(page) {
- $.ajax({
- url: "http://localhost/entertainer/index.php",
- type: "GET",
- data: {
- page: page
- },
- success: function(data) {
- $('').html();
- }
- })
- }
- $(document).on('click', '.pagination_link', function() {
- var page = $(this).attr("id");
- //alert(page);
- load_data(page);
- });
- });*/
-
-/*$(document).on('click', '.feed-like', function () {
- //alert("Feed like Clicked!!");
-
- var $this = $(this);
-
- var userid = $this.data('user_id');
- var postid = $this.data('post_id');
- var likes = $this.data('likes');
-
- $.ajax({
- url: 'http://localhost/entertainer/Api/post.php?api=ADD_POST_FEED_DATA',
- type: 'POST',
- data: {
- 'user_id': userid,
- 'post_id': postid,
- 'likes': likes,
- },
- dataType: 'JSON',
-
- success: function (response) {
- getPostFeedListFunc();
- }
- })
- });*/
-
-/*$(document).on('click', '.feed-like', function () {
- //alert("Feed like Clicked!!");
-
- var userid = $(this).attr('user_id');
- var postid = $(this).attr('post_id');
- var likes = $(this).attr('likes');
-
- if (userid != "" && postid != "" && likes != ""){
- $.ajax({
- url: 'http://localhost/entertainer/Api/post.php?api=ADD_POST_FEED_DATA',
- type: 'POST',
- data: {
- 'user_id': userid,
- 'post_id': postid,
- 'likes': likes,
- },
- success: function (response) {
- getPostFeedListFunc();
- $(".feed-like").css("color", "blue");
- // $post.parent().find('span.likes_count').text(response + " like");
- // $post.addClass('hide');
- // $post.siblings().removeClass('hide');
- }
- })
- }
- });*/
-
-
 $(document).on('click', '.feed-like', function () {
 
 
@@ -431,4 +356,124 @@ $(document).on('click', '.feed-like', function () {
 
     }
 
+});
+
+function getPeopleListFunc() {
+    $.ajax({
+        url: 'http://localhost/entertainer/Api/post.php?api=ADD_GET_PEOPLE',
+        type: 'GET',
+        dataType: 'JSON',
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            if (response.statusCode == 200) {
+                var peoples = '';
+                $.each(response.items, function (index, item) {
+                    // console.log(response);
+                    peoples += '<div class="row profile">\n' +
+                        '<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">\n' +
+                        '<a href="javascript:void(0)"><img src="img/man3.png" alt="profile"></a>\n' +
+                        '</div>\n' +
+                        '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-3 inner-p" id="peoples">\n' +
+                        '<a href="javascript:void(0)" style="color: #3e3e3e; text-decoration: none">\n' +
+                        // item.first_name
+                        ' <h6>' + item.first_name + ' ' + item.last_name + '</h6>\n' +
+                        '</a>\n' +
+                        '</div>\n' +
+                        '</div>';
+
+                });
+
+                $('.add_get_people_list').html(peoples);
+            } else {
+                alert('People Not Found');
+            }
+        }
+
+    });
+}
+
+
+getPostFeedListFunc();
+getPeopleListFunc();
+
+
+getPeopleListFunc();
+$(function () {
+    $('#edit-profile').change(function () {
+        var input = this;
+        var url = $(this).val();
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        if (input.files && input.files[0] && (ext == "png" || ext == "jpeg" || ext == "jpg")) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.rounded-circle').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+
+});
+
+/*$(document).on('click', '#edit-user-profile', function () {
+
+    var image = $('#edit-user-profile').val();
+    var img_ex = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+    if(!img_ex.exec(image)){
+        $('#edit-user-profile').val('');
+        return false;
+    }else{
+
+    }
+
+    $.ajax({
+        url: 'http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA',
+        type: 'GET',
+        data:  new FormData(this),
+        beforeSend: function(){$(".user-profile").show();},
+        contentType: false,
+        processData:false,
+        success: function(data){
+            console.log(response);
+        }
+    })
+
+});*/
+
+// $(document).on('click', '#edit-user-profile', function (event) {
+//     e.preventDefault();
+//     $.ajax({
+//         url: "http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA",
+//         type: "GET",
+//         data:$(this).serialize(),
+//         beforeSend: function () {
+//             $(".user-profile").show();
+//         },
+//         cache:false
+//
+//     });
+// });
+
+
+$(document).on('click', '#edit-user-profile', function (event) {
+    // alert('zcsdcsdc');
+    event.preventDefault();
+    var formData = new FormData();
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if (response.statusCode == 200) {
+                alert('Successful');
+            }
+        },
+    });
 });

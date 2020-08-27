@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../404/.idea/404.iml" filepath="$PROJECT_DIR$/../404/.idea/404.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cms/.idea/CMS1.iml" filepath="$PROJECT_DIR$/../cms/.idea/CMS1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Mychat/.idea/Mychat.iml" filepath="$PROJECT_DIR$/../Mychat/.idea/Mychat.iml" />
       <module fileurl="file://$PROJECT_DIR$/../clock/.idea/clock.iml" filepath="$PROJECT_DIR$/../clock/.idea/clock.iml" />
       <module fileurl="file://D:\xampp\htdocs\cms1\.idea\cms.iml" filepath="D:\xampp\htdocs\cms1\.idea\cms.iml" />
       <module fileurl="file://$PROJECT_DIR$/../crud/.idea/crud.iml" filepath="$PROJECT_DIR$/../crud/.idea/crud.iml" />

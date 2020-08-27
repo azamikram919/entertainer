@@ -18,5 +18,6 @@
     <orderEntry type="module" module-name="icon" />
     <orderEntry type="module" module-name="ecomerce" />
     <orderEntry type="module" module-name="dash_side" />
+    <orderEntry type="module" module-name="Mychat" />
   </component>
 </module>

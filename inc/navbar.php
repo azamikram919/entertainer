@@ -72,7 +72,7 @@
                    aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" style="margin-top: 8px">Manage User On Xaim Ikram</a>
+                    <a class="dropdown-item" href="users_profile.php" style="margin-top: 8px">Manage User profile</a>
                     <hr>
                     <a class="dropdown-item" href="#"><i class="fas fa-tools"></i> Settings</a>
                     <div class="dropdown-divider"></div>
