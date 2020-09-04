@@ -8,19 +8,12 @@ if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-//        if
-//        (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)
-//        ) {
-//            $emailErr = "You Entered An Invalid Email Format";
-//
-//        } elseif (strlen($_POST["password"]) <= 8) {
-//            $passwordErr = "Your Password Must Contain At Least 8 Characters!";
-//        }
-
         $query = "SELECT * FROM `user` WHERE email = '$email' AND password = '$password'";
         $run = mysqli_query($con, $query);
         if ($row = mysqli_fetch_array($run)) {
             $_SESSION['user_id'] = $row['id'];
+            /*$_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['last_name'] = $row['$last_name'];*/
             $_SESSION['email'] = $row['email'];
             $_SESSION['password'] = $row['password'];
             header('Location: index.php');
@@ -29,8 +22,8 @@ if (isset($_POST['login'])) {
         } else {
             $error = "Wrong email or Password";
         }
-//    } else {
-//        echo "Not Success";
+    } else {
+        echo "Not Success";
     }
 }
 ?>

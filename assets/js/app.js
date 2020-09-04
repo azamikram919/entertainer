@@ -458,11 +458,11 @@ $(function () {
 // });
 
 
-$(document).on('click', '#edit-user-profile', function (event) {
+/*$(document).on('click', '#edit-user-profile', function (event) {
     // alert('zcsdcsdc');
     event.preventDefault();
-    var formData = new FormData();
 
+    var formData = new FormData();
     $.ajax({
         type: 'GET',
         url: 'http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA',
@@ -474,6 +474,83 @@ $(document).on('click', '#edit-user-profile', function (event) {
             if (response.statusCode == 200) {
                 alert('Successful');
             }
-        },
+
+        }
     });
-});
+});*/
+
+/*getPostFeedListFunc();
+
+$(document).on('change', '#edit-profile', function () {
+   var property = document.getElementById(file).file[0];
+   var image_name = property.name;
+   var image_extiention = image_name.split('.').pop().toLowerCase();
+   if (jQuery.inArray(image_extiention, ['gif', 'png', 'jpg', 'jpeg']) == -1){
+       alert ("Invalid image file");
+   }
+   var image_size = property.size;
+   if(image_size > 2000000){
+       alert("Image File Size is very big");
+   }else{
+       var form_data = new form_data();
+       form_data.append("file", property);
+   $.ajax({
+       url: 'http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA',
+       type: 'GET',
+       data: 'fomr_data',
+       content_type: 'false',
+       cache: 'false',
+       processData: 'false',
+       beforeSend:function (){
+           $('#edit-user-profile').html();
+       },
+       success:function (data) {
+           $('#edit-user-profile').html(data);
+       }
+   })
+   }
+
+});*/
+
+
+/*function editlogedinuserdata() {
+    $.ajax({
+        url: 'http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA',
+        type: 'GET',
+        dataType: 'JSON',
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            if (response.statusCode == 200) {
+
+                var user_data = '';
+
+
+                $.each(response.items, function (index, item) {
+
+                    console.log(response);
+                    user_data += '<div class="row">\n' +
+                        '<div class="col-md-3">\n' +
+                        '<a href="javascript:void(0)"><img src="' + item.image + '" alt="" class="rounded-circle"\n' +
+                        'style="width: 40px; height: 40px; margin-left: 10px; margin-top: 10px">\n' +
+                        '</a>\n' +
+
+                        '   </div>\n' +
+                        ' <div class="col-md-9">\n' +
+                        '<h5 class="ml-3 mt-2">' + item.first_name + '</h5>\n' +
+                        '</div>\n' +
+                        '</div>';
+                         $('.user_profile_data').html(user_data);
+                });
+            } else {
+                alert('User Data Not Found');
+            }
+        }
+
+    });
+}
+
+getPostFeedListFunc();
+getPeopleListFunc();
+editlogedinuserdata();*/

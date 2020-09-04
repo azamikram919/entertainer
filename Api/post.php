@@ -324,19 +324,118 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     echo json_encode($response);
     exit();
 
-} else if (isset($_GET['api']) && $_GET['api'] == 'EDIT_LOGED_IN_USER_PROFILE_DATA') {
+} /*else if (isset($_GET['api']) && $_GET['api'] == 'EDIT_LOGED_IN_USER_PROFILE_DATA') {
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $response = $items = null;
 
-        $edit_profile = "SELECT * FROM `user` WHERE id= '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
+
+        $edit_profile = "SELECT * FROM `user` WHERE id = '" . $_SESSION['user_id'] . "'";
         $run = mysqli_query($con, $edit_profile);
 
 
         if (mysqli_num_rows($run)) {
+
             while ($row = mysqli_fetch_assoc($run)) {
                 $items[] = $row;
             }
+            $response['status'] = 'Profile Edit';
+            $response['message'] = $items;
+            $response['statusCode'] = 200;
+            echo json_encode($response);
+            exit();
+        } //else {
+//            $response['status'] = 'Error';
+//            $response['message'] = 'Profile Not Edit.';
+//            $response['statusCode'] = 404;
+//        }
+
+        if (empty($_FILES['file']['name'])) {
+
+            $response['name'] = 'Error';
+            $response['message'] = 'Image is Required';
+            $response['statusCode'] = 422;
+
+        } else if (empty($_SESSION['user_id'])) {
+
+            $response['name'] = 'Error';
+            $response['message'] = 'User id is Required';
+            $response['statusCode'] = 422;
+
+        } else if (empty($_POST['first_name'])) {
+
+            $response['name'] = 'Error';
+            $response['message'] = 'First_name is Required';
+            $response['statusCode'] = 422;
+
+        } else if (empty($_POST['last_name'])) {
+            $response['name'] = 'Error';
+            $response['message'] = 'Last_name is Required';
+            $response['statusCode'] = 422;
+
+        } else if (empty($_POST['email'])) {
+            $response['name'] = 'Error';
+            $response['message'] = 'Email is Required';
+            $response['statusCode'] = 422;
+
+        } else if (empty($_POST['gender'])) {
+            $response['name'] = 'Error';
+            $response['message'] = 'Gender is Required';
+            $response['statusCode'] = 422;
+
+        } else {
+
+            move_uploaded_file($_FILES["file"]["tmp_name"],
+                "images/" . $_FILES['file']['name']);
+
+            $name = 'images/' . $_FILES['file']['name'];
+
+            $user_id = $_SESSION['user_id'];
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $email = $_POST['email'];
+            $gender = $_POST['gender'];
+            $profile = $_POST['profile'];
+
+            $update_query = "UPDATE `user` SET `id` = '$user_id', `first_name` = '$first_name', `last_name` = '$last_name',
+             `email` = '$email', `gender` = '$gender', `profile` = '$name'";
+
+            $run = mysqli_query($con, $update_query);
+
+            if (mysqli_num_rows($run)){
+                $response['status'] = 'Profile Edit';
+                $response['message'] = 'Update Success';
+                $response['statusCode'] = 200;
+
+            }else{
+                $response['status'] = 'Error';
+                $response['message'] = 'Not Update';
+                $response['statusCode'] = 400;
+            }
+
+        }
+    } else {
+        $response['status'] = 'Error';
+        $response['message'] = 'Not Found';
+        $response['statusCode'] = 404;
+    }
+    echo json_encode($response);
+    exit();
+}*/
+/*else if (isset($_GET['api']) && $_GET['api'] == 'EDIT_LOGED_IN_USER_PROFILE_DATA') {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $response = $items = null;
+
+        $edit_profile = "SELECT * FROM `user` WHERE id = '" . $_SESSION['user_id'] . "'";
+        $run = mysqli_query($con, $edit_profile);
+
+        if (mysqli_num_rows($run)) {
+
+            while ($row = mysqli_fetch_assoc($run)) {
+                $items[] = $row;
+            }
+
             $response['status'] = 'Profile Edit';
             $response['message'] = $items;
             $response['statusCode'] = 200;
@@ -349,9 +448,10 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     } else {
         $response['status'] = 'Error';
         $response['message'] = 'Not Found';
-        $response['statusCode'] = '404';
+        $response['statusCode'] = 404;
     }
     echo json_encode($response);
     exit();
-}
+}*/
+
 ?>

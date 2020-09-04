@@ -1,3 +1,21 @@
+<?php
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+}
+
+if (isset($_SESSION['user_id'])) {
+    $edit_query = "SELECT * FROM `user` WHERE id = '" . $_SESSION['user_id'] . "'";
+    $run = mysqli_query($con, $edit_query);
+    if (mysqli_num_rows($run) > 0) {
+        $row = mysqli_fetch_array($run);
+        $first_name = $row['first_name'];
+        $last_name = $row['last_name'];
+        $image = $row['image'];
+    }
+}
+
+?>
+
 <nav class="navbar sticky-top navbar-fixed-top navbar-expand-lg navbar-light">
     <nav class="navbar navbar-light">
         <a class="navbar-brand" href="index.php">
@@ -72,7 +90,24 @@
                    aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="users_profile.php" style="margin-top: 8px">Manage User profile</a>
+                    <a class="dropdown-item" href="users_profile.php">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <?php
+                                echo "<img src='images/$image' alt='' class='rounded-circle'
+                                     style='width: 45px; height: 45px; margin-top: 5px;'>";
+                                ?>
+
+                            </div>
+                            <div class="col-md-9">
+
+                                <h5 class='ml-3'><?= $first_name; ?></h5>
+                                <h5 class='ml-3'><?= $last_name; ?></h5>
+
+                            </div>
+                        </div>
+                    </a>
+
                     <hr>
                     <a class="dropdown-item" href="#"><i class="fas fa-tools"></i> Settings</a>
                     <div class="dropdown-divider"></div>
