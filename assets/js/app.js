@@ -120,7 +120,7 @@ function getPostFeedListFunc() {
                 $.each(response.items, function (index, item) {
                     var post_image = '';
                     if (item.post_image !== undefined && item.post_image !== null && item.post_image !== '') {
-                        post_image += '<img src="' + base_url + item.post_image + '" alt="post image" width="100%" class="m-0">';
+                        post_image += '<img src="' + base_url + item.post_image + '" alt="post image" width="100%" height="500px" class="m-0">';
 
                     }
                     var like_color = '8e8c8c';
@@ -359,8 +359,9 @@ $(document).on('click', '.feed-like', function () {
 });
 
 function getPeopleListFunc() {
+
     $.ajax({
-        url: 'http://localhost/entertainer/Api/post.php?api=ADD_GET_PEOPLE',
+        url: 'http://localhost/entertainer/Api/post.php?api=ADD_GET_LOGED_IN_PEOPLE',
         type: 'GET',
         dataType: 'JSON',
         beforeSend: function () {
@@ -373,10 +374,10 @@ function getPeopleListFunc() {
                     // console.log(response);
                     peoples += '<div class="row profile">\n' +
                         '<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">\n' +
-                        '<a href="javascript:void(0)"><img src="img/man3.png" alt="profile"></a>\n' +
+                        '<a href="user_profile.php?id='+ item.id +' "><img src="images/'+ item.image +'" alt="profile" class="rounded-circle" width="40px" height="40px"></a>\n' +
                         '</div>\n' +
                         '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-3 inner-p" id="peoples">\n' +
-                        '<a href="javascript:void(0)" style="color: #3e3e3e; text-decoration: none">\n' +
+                        '<a href="user_profile.php?id='+ item.id +'" style="color: #3e3e3e; text-decoration: none">\n' +
                         // item.first_name
                         ' <h6>' + item.first_name + ' ' + item.last_name + '</h6>\n' +
                         '</a>\n' +
@@ -479,39 +480,6 @@ $(function () {
     });
 });*/
 
-/*getPostFeedListFunc();
-
-$(document).on('change', '#edit-profile', function () {
-   var property = document.getElementById(file).file[0];
-   var image_name = property.name;
-   var image_extiention = image_name.split('.').pop().toLowerCase();
-   if (jQuery.inArray(image_extiention, ['gif', 'png', 'jpg', 'jpeg']) == -1){
-       alert ("Invalid image file");
-   }
-   var image_size = property.size;
-   if(image_size > 2000000){
-       alert("Image File Size is very big");
-   }else{
-       var form_data = new form_data();
-       form_data.append("file", property);
-   $.ajax({
-       url: 'http://localhost/entertainer/Api/post.php?api=EDIT_LOGED_IN_USER_PROFILE_DATA',
-       type: 'GET',
-       data: 'fomr_data',
-       content_type: 'false',
-       cache: 'false',
-       processData: 'false',
-       beforeSend:function (){
-           $('#edit-user-profile').html();
-       },
-       success:function (data) {
-           $('#edit-user-profile').html(data);
-       }
-   })
-   }
-
-});*/
-
 
 /*function editlogedinuserdata() {
     $.ajax({
@@ -554,3 +522,4 @@ $(document).on('change', '#edit-profile', function () {
 getPostFeedListFunc();
 getPeopleListFunc();
 editlogedinuserdata();*/
+

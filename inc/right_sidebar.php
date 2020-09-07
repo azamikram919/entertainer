@@ -7,7 +7,7 @@ if (empty($_SESSION['user_id'])) {
 
 ?>
 
-<div class="col-xl-3 col-lg-3 col-md-3">
+<div class="col-xl-3 col-lg-3 col-md-3" style="border: 1px solid #D8D9DC">
 
     <div class="right">
         <div class="right-sidebar">
@@ -112,4 +112,3 @@ if (empty($_SESSION['user_id'])) {
         </div>
     </div>
 </div>
-</div><!--close md-3-->

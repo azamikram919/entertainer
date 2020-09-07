@@ -19,5 +19,6 @@
     <orderEntry type="module" module-name="ecomerce" />
     <orderEntry type="module" module-name="dash_side" />
     <orderEntry type="module" module-name="Mychat" />
+    <orderEntry type="module" module-name="oop" />
   </component>
 </module>

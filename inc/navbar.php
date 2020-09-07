@@ -1,4 +1,7 @@
 <?php
+require_once 'env.php';
+require_once 'conn.php';
+
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
 }
@@ -90,7 +93,7 @@ if (isset($_SESSION['user_id'])) {
                    aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="users_profile.php">
+                    <a class="dropdown-item" href="edit_profile.php">
                         <div class="row">
                             <div class="col-md-3">
                                 <?php

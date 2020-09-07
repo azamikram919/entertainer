@@ -1,4 +1,4 @@
-<div class="col-xl-3 col-lg-3 col-md-3">
+<div class="col-xl-3 col-lg-3 col-md-3" style="border: 1px solid #D8D9DC">
     <div class="widgets">
         <div class="row wid">
             <div class="col-xl-2 col-lg-2 col-md-2">
