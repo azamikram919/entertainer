@@ -128,7 +128,7 @@ $total_pages = ceil($total_records / $record_per_page);*/
                                                         </div>
                                                         <div class="modal-body">
                                                             <img src="" class="feed-mode-image-display"
-                                                                 alt="post image">
+                                                                 alt="">
                                                         </div><!--main image-->
                                                         <div class="modal-footer">
                                                             <!--<h3>Add To Your Post</h3>-->

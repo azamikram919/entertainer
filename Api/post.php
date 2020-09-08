@@ -352,20 +352,22 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     echo json_encode($response);
     exit();
 
-} else if (isset($_GET['api']) && $_GET['api'] == 'SEE_USER_PROFILE') {
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $response = $items = null;
+} /*else if (isset($_GET['api']) && $_GET['api'] == 'SEE_OTHER_USER_PROFILE') {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
+        $response = $item = null;
+        $user_id = $_GET['user_id'];
 
-        $profile_query = "SELECT ";
+        $profile_query = "SELECT * FROM user WHERE id='".$user_id."'";
         $run = mysqli_query($con, $profile_query);
+
+
+
 
         if (mysqli_num_rows($run) > 0) {
 
-            while ($row = mysqli_fetch_assoc($run)) {
-                $items[] = $row;
-            }
+            $item = mysqli_fetch_row($run);
             $response['status'] = 'Success';
-            $response['items'] = $items;
+            $response['item'] = $item;
             $response['statusCode'] = 200;
         } else {
             $response['status'] = 'Error';
@@ -380,6 +382,7 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     }
     echo json_encode($response);
     exit();
-}
+}*/
+
 
 ?>
