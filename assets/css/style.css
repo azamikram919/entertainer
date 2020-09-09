@@ -676,7 +676,6 @@ input[type="text"] {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
-    font-weight: bold;
 }
 
 .intro-box-2 .user-photos img {
@@ -685,6 +684,43 @@ input[type="text"] {
     padding-top: 3px;
     margin-bottom: 10px;
     border-radius: 6px;
+}
+
+.intro-box-2 .see h3{
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 18px;
+    padding-left: 50%;
+    padding-top: 2px;
+}
+
+.see-friends {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #DAD5D5;
+    margin-bottom: auto;
+    margin-top: -1586%;
+}
+
+.see-friends h3 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.see-friends .a h3{
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 18px;
+    padding-left: 50%;
+    padding-top: 2px;
+}
+
+.see-other-user-friends img {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 992px) {

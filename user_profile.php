@@ -279,7 +279,16 @@ $item = mysqli_fetch_row($run);
         <div class="col-xl-8 col-lg-8 col-md-8">
             <div class="row">
                 <div class="col-xl-4 intro-box-2">
-                    <h3>Photos</h3>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h3>Photos</h3>
+                        </div>
+                        <div class="col-xl-6 see">
+                            <a href="#">
+                                <h3>See All</h3>
+                            </a>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-xl-4">
                             <div class="user-photos">
@@ -320,6 +329,60 @@ $item = mysqli_fetch_row($run);
                 <div class="col-xl-8">
                     <div class="get-post-feed-list-wrapper">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-2 col-lg-2 col-md-2"></div>
+        <div class="col-xl-8 col-lg-8 col-md-8">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 see-friends">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h3>Friends</h3>
+                        </div>
+                        <div class="col-xl-6 a">
+                            <a href="#">
+                                <h3>See All</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4">
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                            <div class="see-other-user-friends">
+                                <img src="img/post.jpg" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

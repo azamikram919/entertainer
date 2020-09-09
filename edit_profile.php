@@ -124,8 +124,8 @@ if (isset($_SESSION['user_id'])) {
             <div class="form-group">
                 <lable for="role">Gender:</lable>
                 <select name="gender" id="gender" class="form-control">
-                    <option value="M">M</option>
-                    <option value="F">F</option>
+                    <option value="<?= $gender;?>">M</option>
+                    <option value="<?= $gender;?>">F</option>
                 </select>
             </div>
             <div class="form-group">
