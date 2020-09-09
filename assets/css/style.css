@@ -599,22 +599,22 @@ input[type="text"] {
 }
 
 .second-navbar .about:hover {
-    background: #d9dbe0;
+    background: #eff1f6;
     border-radius: 5px;
 }
 
 .second-navbar .photos:hover {
-    background: #d9dbe0;
+    background: #eff1f6;
     border-radius: 5px;
 }
 
 .second-navbar .video:hover {
-    background: #d9dbe0;
+    background: #eff1f6;
     border-radius: 5px;
 }
 
 .second-navbar .dropdown:hover {
-    background: #d9dbe0;
+    background: #eff1f6;
     border-radius: 5px;
 }
 
@@ -679,7 +679,7 @@ input[type="text"] {
     font-weight: bold;
 }
 
-.intro-box-2 .user-photos img{
+.intro-box-2 .user-photos img {
     width: 70px;
     height: 80px;
     padding-top: 3px;

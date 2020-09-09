@@ -36,11 +36,9 @@ $item = mysqli_fetch_row($run);
         <div class="col-xl-10 col-lg-10 col-md-10">
             <div class="other-user-profile-page-center-box-wrapper">
                 <div class="cover-photo mt-2 other-user-profile-page-cover-box">
-
                     <img src="images/<?= $image ?>" class="rounded-circle other-user-profile-page-profile-photo"
                          alt=""
                          data-holder-rendered="true">
-
                 </div>
                 <br><br>
                 <h1 class="text-center mt-4">John Do</h1>
