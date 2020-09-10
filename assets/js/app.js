@@ -154,7 +154,7 @@ function getPostFeedListFunc() {
                         '                            <a href="#">\n' +
                         post_image +
                         '                            </a>\n' +
-                        '                            <p class="p" style="padding: 30px">' + item.post_description + '</p>\n' +
+                        '                            <p class="p" style="padding-left: 20px; padding-right:15px;">' + item.post_description + '</p>\n' +
                         '                        </div>\n' +
                         '                        <hr>\n' +
                         '                    </div>\n' +
@@ -317,7 +317,6 @@ $("#feed-add-post-image").change(function () {
 
 $(document).on('click', '.feed-like', function () {
 
-
     var userid = $('#user_id').attr('user_id');
     var postid = $(this).attr('post_id');
     //var likes = $(this).attr('likes');
@@ -374,10 +373,10 @@ function getPeopleListFunc() {
                     // console.log(response);
                     peoples += '<div class="row profile">\n' +
                         '<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">\n' +
-                        '<a href="user_profile.php?id='+ item.id +' "><img src="images/'+ item.image +'" alt="profile" class="rounded-circle" width="40px" height="40px"></a>\n' +
+                        '<a href="user_profile.php?id=' + item.id + ' "><img src="images/' + item.image + '" alt="profile" class="rounded-circle" width="40px" height="40px"></a>\n' +
                         '</div>\n' +
                         '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-3 inner-p" id="peoples">\n' +
-                        '<a href="user_profile.php?id='+ item.id +'" style="color: #3e3e3e; text-decoration: none">\n' +
+                        '<a href="user_profile.php?id=' + item.id + '" style="color: #3e3e3e; text-decoration: none">\n' +
                         // item.first_name
                         ' <h6>' + item.first_name + ' ' + item.last_name + '</h6>\n' +
                         '</a>\n' +
@@ -458,7 +457,6 @@ $(function () {
 //     });
 // });
 
-
 /*$(document).on('click', '#edit-user-profile', function (event) {
     // alert('zcsdcsdc');
     event.preventDefault();
@@ -479,7 +477,6 @@ $(function () {
         }
     });
 });*/
-
 
 /*function editlogedinuserdata() {
     $.ajax({
@@ -523,3 +520,27 @@ getPostFeedListFunc();
 getPeopleListFunc();
 editlogedinuserdata();*/
 
+
+$(document).on('click', '.send-request', function () {
+    // alert('success data');
+    var userid = $(this).attr('data-uid');
+
+    if (userid != "") {
+    // alert(userid);
+
+    $.ajax({
+        url: 'http://localhost/entertainer/Api/post.php?api=ADD_GET_FRIEND_REQUEST&user_id=' + userid,
+        type: 'GET',
+        data: {
+            'data-uid': userid,
+        },
+        dataType: 'JSON',
+        success: function (response) {
+            console.log(response);
+            if (response.statusCode == 200) {
+                // alert(response);
+            }
+        },
+    });
+    }
+});

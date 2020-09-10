@@ -36,7 +36,7 @@ $item = mysqli_fetch_row($run);
         <div class="col-xl-10 col-lg-10 col-md-10">
             <div class="other-user-profile-page-center-box-wrapper">
                 <div class="cover-photo mt-2 other-user-profile-page-cover-box">
-                    <img src="images/<?= $image ?>" class="rounded-circle other-user-profile-page-profile-photo"
+                    <img src="images/<?= $image?>" class="rounded-circle other-user-profile-page-profile-photo"
                          alt=""
                          data-holder-rendered="true">
                 </div>
@@ -61,19 +61,31 @@ $item = mysqli_fetch_row($run);
                                             <a href="#" class="nav-item nav-link about">About</a>
                                             <a href="#" class="nav-item nav-link photos">Photos</a>
                                             <a href="#" class="nav-item nav-link video">Videos</a>
-                                            <div class="nav-item dropdown">
+                                            <div class="nav-item dropdown nav-drop">
                                                 <a href="#" class="nav-link dropdown-toggle"
                                                    data-toggle="dropdown">More</a>
                                                 <div class="dropdown-menu">
-                                                    <a href="#" class="dropdown-item">Inbox</a>
-                                                    <a href="#" class="dropdown-item">Sent</a>
-                                                    <a href="#" class="dropdown-item">Drafts</a>
+                                                    <a href="#" class="dropdown-item">Check-Ins</a>
+                                                    <a href="#" class="dropdown-item">Sports</a>
+                                                    <a href="#" class="dropdown-item">Music</a>
+                                                    <a href="#" class="dropdown-item">Movies</a>
+                                                    <a href="#" class="dropdown-item">TV Shows</a>
+                                                    <a href="#" class="dropdown-item">Books</a>
+                                                    <a href="#" class="dropdown-item">Apps and Games</a>
+                                                    <a href="#" class="dropdown-item">Likes</a>
+                                                    <a href="#" class="dropdown-item">Events</a>
+                                                    <a href="#" class="dropdown-item">Reviews</a>
+                                                    <a href="#" class="dropdown-item">Notes</a>
+                                                    <a href="#" class="dropdown-item">Instagram</a>
                                                 </div>
                                             </div>
                                         </div>
+
+
+
                                         <div class="menu-bar">
                                             <form class="form-inline ml-auto">
-                                                <button type="sub" class="btn btn-md"><i
+                                                <!--<button type="sub" class="btn btn-md"><i
                                                             class="fab fa-facebook-messenger"></i> Message
                                                 </button>
                                                 <button type="sub" class="btn btn-sm phone"><i
@@ -84,7 +96,60 @@ $item = mysqli_fetch_row($run);
                                                 </button>
                                                 <button type="sub" class="btn btn-sm dots"><i
                                                             class="fa fa-ellipsis-h"></i>
-                                                </button>
+                                                </button>-->
+                                                <div class="navbar-nav ml-2">
+                                                    <div class="nav-item dropdown drop">
+                                                        <a href="#" class="nav-link"
+                                                           data-toggle="dropdown"><i class="fab fa-facebook-messenger"></i></a>
+                                                        <div class="dropdown-menu">
+                                                            <a href="#" class="dropdown-item">Audio Call</a>
+                                                            <a href="#" class="dropdown-item">Video Call</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="navbar-nav ml-2">
+                                                    <div class="nav-item dropdown drop-2">
+                                                        <a href="#" class="nav-link"
+                                                           data-toggle="dropdown"><i class="fa fa-phone"></i></a>
+                                                        <div class="dropdown-menu">
+                                                            <a href="#" class="dropdown-item">Audio Call</a>
+                                                            <a href="#" class="dropdown-item">Video Call</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="navbar-nav ml-2">
+                                                    <div class="nav-item dropdown drop-2">
+                                                        <a href="javascript:viod(0)" class="nav-link"
+                                                           data-toggle="dropdown"><i class="fa fa-user-plus"></i></a>
+                                                        <div class="dropdown-menu">
+                                                            <?php
+                                                            if(isset($_GET['id']) && !empty($_GET['id'])) {
+                                                                $other_user_id = $_GET['id'];
+                                                                ?>
+                                                                <a href="javascript:void(0);" data-uid="<?= $other_user_id ?>" class="dropdown-item send-request">
+                                                                    Send Request
+                                                                </a>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                            <a href="#" class="dropdown-item">See Friends </a>
+                                                            <a href="#" class="dropdown-item">Find Support Profile</a>
+                                                            <a href="#" class="dropdown-item">Block</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="navbar-nav ml-2">
+                                                    <div class="nav-item dropdown drop-3">
+                                                        <a href="#" class="nav-link"
+                                                           data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+                                                        <div class="dropdown-menu">
+                                                            <a href="#" class="dropdown-item">Search Profile</a>
+                                                            <a href="#" class="dropdown-item">See Friendship</a>
+                                                            <a href="#" class="dropdown-item">Find Support Profile</a>
+                                                            <a href="#" class="dropdown-item">Block</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -281,7 +346,9 @@ $item = mysqli_fetch_row($run);
                 <div class="col-xl-4 intro-box-2">
                     <div class="row">
                         <div class="col-xl-6">
-                            <h3>Photos</h3>
+                            <a href="#">
+                                <h3>Photos</h3>
+                            </a>
                         </div>
                         <div class="col-xl-6 see">
                             <a href="#">
@@ -341,7 +408,9 @@ $item = mysqli_fetch_row($run);
                 <div class="col-xl-4 col-lg-4 col-md-4 see-friends">
                     <div class="row">
                         <div class="col-xl-6">
-                            <h3>Friends</h3>
+                            <a href="#">
+                                <h3>Friends</h3>
+                            </a>
                         </div>
                         <div class="col-xl-6 a">
                             <a href="#">

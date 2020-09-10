@@ -352,15 +352,13 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     echo json_encode($response);
     exit();
 
-} /*else if (isset($_GET['api']) && $_GET['api'] == 'SEE_OTHER_USER_PROFILE') {
-    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
+} else if (isset($_GET['api']) && $_GET['api'] == 'ADD_GET_FRIEND_REQUEST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['user_id']) {
         $response = $item = null;
         $user_id = $_GET['user_id'];
 
-        $profile_query = "SELECT * FROM user WHERE id='".$user_id."'";
-        $run = mysqli_query($con, $profile_query);
-
-
+        $friends_query = "SELECT * FROM `user` WHERE id='" . $user_id . "'";
+        $run = mysqli_query($con, $friends_query);
 
 
         if (mysqli_num_rows($run) > 0) {
@@ -382,7 +380,6 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     }
     echo json_encode($response);
     exit();
-}*/
-
+}
 
 ?>
