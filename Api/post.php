@@ -270,9 +270,6 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
             //add new like
             $query = "INSERT INTO `likes`(`user_id`, `post_id`) VALUES ('" . $user_id . "','" . $post_id . "')";
 
-            //$query = "INSERT INTO `likes` VALUES('$user_id', '$post_id');
-            // Query OK, 1 row affected (0.02 sec)";
-
 
             $run = mysqli_query($con, $query);
             if ($run) {
@@ -373,6 +370,76 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
             $response['statusCode'] = 404;
         }
 
+    } else {
+        $response['status'] = 'Error';
+        $response['message'] = 'Not Found.';
+        $response['statusCode'] = 404;
+    }
+    echo json_encode($response);
+    exit();
+
+} /*else if (isset($_GET['api']) && $_GET['api'] == 'SEND_FRIEND_REQUEST_ID'){
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['profile_id']){
+        $response = $item = null;
+        $profile_id = $_GET['profile_id'];
+
+        $user_profile_query = "SELECT * FROM `user` WHERE id='" . $profile_id . "'";
+        $run = mysqli_query($con, $user_profile_query);
+
+        if (mysqli_num_rows($run) > 0) {
+
+            $item = mysqli_fetch_row($run);
+            $response['status'] = 'User Profile id Get Success.';
+            $response['item'] = $item;
+            $response['statusCode'] = 200;
+        } else {
+            $response['status'] = 'Error';
+            $response['message'] = 'User Profile id Get Not Success.';
+            $response['statusCode'] = 404;
+        }
+
+    }else{
+        $response['status'] = 'Error';
+        $response['message'] = 'Not Found.';
+        $response['statusCode'] = 404;
+    }
+    echo json_encode($response);
+    exit();
+}*/
+else if (isset($_GET['api']) && $_GET['api'] == 'SEND_FRIEND_REQUEST_ID') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $response = $item = null;
+
+        if (empty($_POST['sender_id'])) {
+            $response['name'] = 'Error';
+            $response['message'] = 'Sender_id is Required';
+            $response['statusCode'] = 422;
+
+        } else if (empty($_POST['receiver_id'])) {
+            $response['name'] = 'Error';
+            $response['message'] = 'Receiver_id is Required';
+            $response['statusCode'] = 422;
+
+        } else {
+            $sender_id = $_POST['sender_id'];
+            $receiver_id = $_POST['receiver_id'];
+
+            $query = "INSERT INTO `friend_requests`(`sender_id`, `receiver_id`)
+                      VALUES ('$sender_id', '$receiver_id')";
+            $run = mysqli_query($con, $query);
+
+            if ($run) {
+                $response['status'] = 'Success';
+                $response['message'] = 'Successful';
+                $response['statusCode'] = 200;
+
+            } else {
+                $response['status'] = 'Error';
+                $response['message'] = 'Failed to create Id.';
+                $response['statusCode'] = 500;
+
+            }
+        }
     } else {
         $response['status'] = 'Error';
         $response['message'] = 'Not Found.';

@@ -36,7 +36,7 @@ $item = mysqli_fetch_row($run);
         <div class="col-xl-10 col-lg-10 col-md-10">
             <div class="other-user-profile-page-center-box-wrapper">
                 <div class="cover-photo mt-2 other-user-profile-page-cover-box">
-                    <img src="images/<?= $image?>" class="rounded-circle other-user-profile-page-profile-photo"
+                    <img src="images/<?= $image ?>" class="rounded-circle other-user-profile-page-profile-photo"
                          alt=""
                          data-holder-rendered="true">
                 </div>
@@ -82,7 +82,6 @@ $item = mysqli_fetch_row($run);
                                         </div>
 
 
-
                                         <div class="menu-bar">
                                             <form class="form-inline ml-auto">
                                                 <!--<button type="sub" class="btn btn-md"><i
@@ -100,7 +99,8 @@ $item = mysqli_fetch_row($run);
                                                 <div class="navbar-nav ml-2">
                                                     <div class="nav-item dropdown drop">
                                                         <a href="#" class="nav-link"
-                                                           data-toggle="dropdown"><i class="fab fa-facebook-messenger"></i></a>
+                                                           data-toggle="dropdown"><i
+                                                                    class="fab fa-facebook-messenger"></i></a>
                                                         <div class="dropdown-menu">
                                                             <a href="#" class="dropdown-item">Audio Call</a>
                                                             <a href="#" class="dropdown-item">Video Call</a>
@@ -119,22 +119,28 @@ $item = mysqli_fetch_row($run);
                                                 </div>
                                                 <div class="navbar-nav ml-2">
                                                     <div class="nav-item dropdown drop-2">
-                                                        <a href="javascript:viod(0)" class="nav-link"
+                                                        <a href="javascript:void(0);" class="nav-link"
                                                            data-toggle="dropdown"><i class="fa fa-user-plus"></i></a>
                                                         <div class="dropdown-menu">
                                                             <?php
-                                                            if(isset($_GET['id']) && !empty($_GET['id'])) {
+                                                            if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                                 $other_user_id = $_GET['id'];
+                                                                $other_sender_id = $_GET['id'];
+                                                                $other_receiver_id = $_GET['id'];
                                                                 ?>
-                                                                <a href="javascript:void(0);" data-uid="<?= $other_user_id ?>" class="dropdown-item send-request">
-                                                                    Send Request
+                                                                <a href="javascript:void(0);"
+                                                                   data-uid="<?= $other_user_id; ?>"
+                                                                   data-sid="<?= $other_sender_id; ?>"
+                                                                   data-rid="<?= $other_receiver_id; ?>"
+                                                                   class="dropdown-item send-request">
+                                                                    <i class="fas fa-user-edit"></i> Send Friend Request
                                                                 </a>
                                                                 <?php
                                                             }
                                                             ?>
-                                                            <a href="#" class="dropdown-item">See Friends </a>
-                                                            <a href="#" class="dropdown-item">Find Support Profile</a>
-                                                            <a href="#" class="dropdown-item">Block</a>
+                                                            <a href="#" class="dropdown-item"><i class="far fa-star"></i> See Friends </a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-user-times"></i> Unfriend</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-ban"></i> Block</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -143,10 +149,10 @@ $item = mysqli_fetch_row($run);
                                                         <a href="#" class="nav-link"
                                                            data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
                                                         <div class="dropdown-menu">
-                                                            <a href="#" class="dropdown-item">Search Profile</a>
-                                                            <a href="#" class="dropdown-item">See Friendship</a>
-                                                            <a href="#" class="dropdown-item">Find Support Profile</a>
-                                                            <a href="#" class="dropdown-item">Block</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-search"></i> Search Profile</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-user-friends"></i> See Friendship</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-exclamation"></i> Find Support Profile</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-ban"></i> Block</a>
                                                         </div>
                                                     </div>
                                                 </div>
