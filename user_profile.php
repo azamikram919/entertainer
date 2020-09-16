@@ -125,7 +125,7 @@ $item = mysqli_fetch_row($run);
                                                             <?php
                                                             if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                                 $other_user_id = $_GET['id'];
-                                                                $other_sender_id = $_GET['id'];
+                                                                $other_sender_id = $_SESSION['user_id'];
                                                                 $other_receiver_id = $_GET['id'];
                                                                 ?>
                                                                 <a href="javascript:void(0);"
@@ -133,7 +133,7 @@ $item = mysqli_fetch_row($run);
                                                                    data-sid="<?= $other_sender_id; ?>"
                                                                    data-rid="<?= $other_receiver_id; ?>"
                                                                    class="dropdown-item send-request">
-                                                                    <i class="fas fa-user-edit"></i> Send Friend Request
+                                                                    <i class="fas fa-user"></i> Send Friend Request
                                                                 </a>
                                                                 <?php
                                                             }

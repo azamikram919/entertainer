@@ -410,22 +410,85 @@ else if (isset($_GET['api']) && $_GET['api'] == 'SEND_FRIEND_REQUEST_ID') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = $item = null;
 
-        if (empty($_POST['sender_id'])) {
-            $response['name'] = 'Error';
-            $response['message'] = 'Sender_id is Required';
-            $response['statusCode'] = 422;
-
-        } else if (empty($_POST['receiver_id'])) {
+        if (empty($_POST['receiver_id'])) {
             $response['name'] = 'Error';
             $response['message'] = 'Receiver_id is Required';
             $response['statusCode'] = 422;
 
         } else {
-            $sender_id = $_POST['sender_id'];
+            $user_id = $_SESSION['user_id'];
             $receiver_id = $_POST['receiver_id'];
 
             $query = "INSERT INTO `friend_requests`(`sender_id`, `receiver_id`)
-                      VALUES ('$sender_id', '$receiver_id')";
+                      VALUES ('$user_id', '$receiver_id')";
+            $run = mysqli_query($con, $query);
+
+            if ($run) {
+                $response['status'] = 'Success';
+                $response['message'] = 'Successful';
+                $response['statusCode'] = 200;
+
+            } else {
+                $response['status'] = 'Error';
+                $response['message'] = 'Failed to create Id.';
+                $response['statusCode'] = 500;
+
+                echo json_encode($response);
+                exit();
+
+            }
+
+            if (empty($_POST['receiver_id'])) {
+                $response['name'] = 'Error';
+                $response['message'] = 'Receiver_id is Required';
+                $response['statusCode'] = 422;
+
+            } else {
+                $user_id = $_SESSION['user_id'];
+                $receiver_id = $_POST['receiver_id'];
+
+                $query = "INSERT INTO `notifications`(`sender_id`, `receiver_id`)
+                      VALUES ('$user_id', '$receiver_id')";
+                $run = mysqli_query($con, $query);
+
+                if ($run) {
+                    $response['status'] = 'Success';
+                    $response['message'] = 'Successful';
+                    $response['statusCode'] = 200;
+
+                } else {
+                    $response['status'] = 'Error';
+                    $response['message'] = 'Failed to create Id.';
+                    $response['statusCode'] = 500;
+
+                }
+            }
+
+
+        }
+    } else {
+        $response['status'] = 'Error';
+        $response['message'] = 'Not Found.';
+        $response['statusCode'] = 404;
+    }
+    echo json_encode($response);
+    exit();
+
+} /*else if (isset($_GET['api']) && $_GET['api'] == 'SAVE_FRIEND_REQUEST_ID') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $response = $item = null;
+
+        if (empty($_POST['receiver_id'])) {
+            $response['name'] = 'Error';
+            $response['message'] = 'Receiver_id is Required';
+            $response['statusCode'] = 422;
+
+        } else {
+            $user_id = $_SESSION['user_id'];
+            $receiver_id = $_POST['receiver_id'];
+
+            $query = "INSERT INTO `notifications`(`sender_id`, `receiver_id`)
+                      VALUES ('$user_id', '$receiver_id')";
             $run = mysqli_query($con, $query);
 
             if ($run) {
@@ -447,6 +510,6 @@ else if (isset($_GET['api']) && $_GET['api'] == 'SEND_FRIEND_REQUEST_ID') {
     }
     echo json_encode($response);
     exit();
-}
+}*/
 
 ?>

@@ -520,6 +520,33 @@ getPostFeedListFunc();
 getPeopleListFunc();
 editlogedinuserdata();*/
 
+/*$(document).on('click', '.send-request', function () {
+    // alert('success data');
+    var userid = $(this).attr('data-uid');
+    var senderid = $(this).attr('data-sid');
+    var receiverid = $(this).attr('data-rid');
+    if (userid != "" && senderid != "" && receiverid != "") {
+        // alert(userid + senderid + receiverid);
+
+        $.ajax({
+            url: 'http://localhost/entertainer/Api/post.php?api=SAVE_FRIEND_REQUEST_ID',
+            type: 'POST',
+            data: {
+                'data-uid': userid,
+                'sender_id': senderid,
+                'receiver_id': receiverid,
+            },
+            dataType: 'JSON',
+            success: function (response) {
+                // console.log(response)
+                // if (response.statusCode == 200) {
+                //     // getPostFeedListFunc();
+                //
+                // }
+            }
+        });
+    }
+});*/
 
 $(document).on('click', '.send-request', function () {
     // alert('success data');
@@ -560,11 +587,11 @@ $(document).on('click', '.send-request', function () {
             },
             dataType: 'JSON',
             success: function (response) {
-                console.log(response)
-                if (response.statusCode == 200) {
-                    // getPostFeedListFunc();
-
-                }
+                // console.log(response)
+                // if (response.statusCode == 200) {
+                //     // getPostFeedListFunc();
+                //
+                // }
             }
         });
     }
