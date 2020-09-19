@@ -435,7 +435,6 @@ else if (isset($_GET['api']) && $_GET['api'] == 'SEND_FRIEND_REQUEST_ID') {
 
                 echo json_encode($response);
                 exit();
-
             }
 
             if (empty($_POST['receiver_id'])) {
@@ -463,8 +462,6 @@ else if (isset($_GET['api']) && $_GET['api'] == 'SEND_FRIEND_REQUEST_ID') {
 
                 }
             }
-
-
         }
     } else {
         $response['status'] = 'Error';

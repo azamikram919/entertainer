@@ -1958,7 +1958,7 @@ book:
       - diary
       - documentation
       - journal
-      - library
+      - libraries
       - read
   styles:
     - solid
@@ -2000,7 +2000,7 @@ book-medical:
       - health
       - history
       - journal
-      - library
+      - libraries
       - read
       - record
   styles:
@@ -2016,7 +2016,7 @@ book-open:
   search:
     terms:
       - flyer
-      - library
+      - libraries
       - notebook
       - open book
       - pamphlet
@@ -2032,7 +2032,7 @@ book-reader:
   search:
     terms:
       - flyer
-      - library
+      - libraries
       - notebook
       - open book
       - pamphlet
@@ -14121,7 +14121,7 @@ photo-video:
       - av
       - film
       - image
-      - library
+      - libraries
       - media
   styles:
     - solid

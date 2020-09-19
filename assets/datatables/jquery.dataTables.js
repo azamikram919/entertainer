@@ -60,7 +60,7 @@
 	"use strict";
 
 	/**
-	 * DataTables is a plug-in for the jQuery Javascript library. It is a highly
+	 * DataTables is a plug-in for the jQuery Javascript libraries. It is a highly
 	 * flexible tool, based upon the foundations of progressive enhancement,
 	 * which will add advanced interaction controls to any HTML table. For a
 	 * full list of features please refer to
