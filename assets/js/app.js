@@ -373,7 +373,8 @@ function getPeopleListFunc() {
                     // console.log(response);
                     peoples += '<div class="row profile">\n' +
                         '<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">\n' +
-                        '<a href="user_profile.php?id=' + item.id + ' "><img src="images/' + item.image + '" alt="profile" class="rounded-circle" width="40px" height="40px"></a>\n' +
+                        '<a href="user_profile.php?id=' + item.id + ' ">' +
+                        '<img src="' + item.image + '" alt="profile" class="rounded-circle" width="40px" height="40px"></a>\n' +
                         '</div>\n' +
                         '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-3 inner-p" id="peoples">\n' +
                         '<a href="user_profile.php?id=' + item.id + '" style="color: #3e3e3e; text-decoration: none">\n' +
@@ -552,20 +553,20 @@ $(document).on('click', '.send-request', function () {
     // alert('success data');
     var userid = $(this).attr('data-uid');
     if (userid != "") {
-    // alert(userid);
+        // alert(userid);
 
-    $.ajax({
-        url: 'http://localhost/entertainer/Api/post.php?api=ADD_GET_FRIEND_REQUEST&user_id=' + userid,
-        type: 'GET',
-        data: {
-            'data-uid': userid,
-        },
-        dataType: 'JSON',
-        success: function (response) {
-            // console.log(response);
+        $.ajax({
+            url: 'http://localhost/entertainer/Api/post.php?api=ADD_GET_FRIEND_REQUEST&user_id=' + userid,
+            type: 'GET',
+            data: {
+                'data-uid': userid,
+            },
+            dataType: 'JSON',
+            success: function (response) {
+                // console.log(response);
 
-        },
-    });
+            },
+        });
     }
 });
 

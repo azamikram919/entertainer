@@ -298,7 +298,7 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $response = $items = null;
 
-        $query = "SELECT * FROM `user` WHERE id != '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
+        $query = "SELECT * FROM `users` WHERE id != '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
         $run = mysqli_query($con, $query);
         if (mysqli_num_rows($run) > 0) {
 
@@ -326,7 +326,7 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $response = $items = null;
 
-        $query = "SELECT * FROM `user` WHERE id != '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
+        $query = "SELECT * FROM `users` WHERE id != '" . $_SESSION['user_id'] . "' ORDER BY id DESC";
         $run = mysqli_query($con, $query);
         if (mysqli_num_rows($run) > 0) {
 
@@ -354,7 +354,7 @@ else if (isset($_GET['api']) && $_GET['api'] == 'ADD_POST_FEED_LIKES') {
         $response = $item = null;
         $user_id = $_GET['user_id'];
 
-        $friends_query = "SELECT * FROM `user` WHERE id='" . $user_id . "'";
+        $friends_query = "SELECT * FROM `users` WHERE id='" . $user_id . "'";
         $run = mysqli_query($con, $friends_query);
 
 

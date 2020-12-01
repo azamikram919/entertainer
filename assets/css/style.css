@@ -305,6 +305,7 @@ button[type="submit"]:hover {
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
+
     .widgets .wid {
         margin: -5px;
     }

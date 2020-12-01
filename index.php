@@ -189,7 +189,8 @@ $total_pages = ceil($total_records / $record_per_page);*/
                                                 <div class="col-xl-12">
                                                     <textarea name="description" id="" cols="72" rows="5"
                                                               placeholder="Write Your Post"
-                                                              style="border: 1px solid #E5E5E5; border-radius: 5px"></textarea>
+                                                              style="border: 1px solid #E5E5E5; border-radius: 5px">
+                                                    </textarea>
                                                 </div>
                                             </div>
                                             <div class="row">

@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if (isset($_SESSION['user_id'])) {
-    $edit_query = "SELECT * FROM `user` WHERE id = '" . $_SESSION['user_id'] . "'";
+    $edit_query = "SELECT * FROM `users` WHERE id = '" . $_SESSION['user_id'] . "'";
     $run = mysqli_query($con, $edit_query);
     if (mysqli_num_rows($run) > 0) {
         $row = mysqli_fetch_array($run);

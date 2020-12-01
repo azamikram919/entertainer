@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $query = "SELECT * FROM `user` WHERE email = '$email' AND password = '$password'";
+        $query = "SELECT * FROM `users` WHERE email = '$email' AND password = '$password'";
         $run = mysqli_query($con, $query);
         if ($row = mysqli_fetch_array($run)) {
             $_SESSION['user_id'] = $row['id'];

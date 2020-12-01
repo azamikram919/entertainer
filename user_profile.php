@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])) {
 <?php
 if (isset($_GET['id'])) {
 $user_id = $_GET['id'];
-$edit_query = "SELECT * FROM `user` WHERE id = '" . $user_id . "'";
+$edit_query = "SELECT * FROM `users` WHERE id = '" . $user_id . "'";
 $run = mysqli_query($con, $edit_query);
 if (mysqli_num_rows($run) > 0) {
 $item = mysqli_fetch_row($run);
@@ -80,22 +80,8 @@ $item = mysqli_fetch_row($run);
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <div class="menu-bar">
                                             <form class="form-inline ml-auto">
-                                                <!--<button type="sub" class="btn btn-md"><i
-                                                            class="fab fa-facebook-messenger"></i> Message
-                                                </button>
-                                                <button type="sub" class="btn btn-sm phone"><i
-                                                            class="fa fa-phone"></i>
-                                                </button>
-                                                <button type="sub" class="btn btn-sm user"><i
-                                                            class="fa fa-user"></i>
-                                                </button>
-                                                <button type="sub" class="btn btn-sm dots"><i
-                                                            class="fa fa-ellipsis-h"></i>
-                                                </button>-->
                                                 <div class="navbar-nav ml-2">
                                                     <div class="nav-item dropdown drop">
                                                         <a href="#" class="nav-link"
@@ -138,9 +124,12 @@ $item = mysqli_fetch_row($run);
                                                                 <?php
                                                             }
                                                             ?>
-                                                            <a href="#" class="dropdown-item"><i class="far fa-star"></i> See Friends </a>
-                                                            <a href="#" class="dropdown-item"><i class="fas fa-user-times"></i> Unfriend</a>
-                                                            <a href="#" class="dropdown-item"><i class="fas fa-ban"></i> Block</a>
+                                                            <a href="#" class="dropdown-item"><i
+                                                                        class="far fa-star"></i> See Friends </a>
+                                                            <a href="#" class="dropdown-item"><i
+                                                                        class="fas fa-user-times"></i> Unfriend</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-ban"></i>
+                                                                Block</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,10 +138,15 @@ $item = mysqli_fetch_row($run);
                                                         <a href="#" class="nav-link"
                                                            data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
                                                         <div class="dropdown-menu">
-                                                            <a href="#" class="dropdown-item"><i class="fas fa-search"></i> Search Profile</a>
-                                                            <a href="#" class="dropdown-item"><i class="fas fa-user-friends"></i> See Friendship</a>
-                                                            <a href="#" class="dropdown-item"><i class="fas fa-exclamation"></i> Find Support Profile</a>
-                                                            <a href="#" class="dropdown-item"><i class="fas fa-ban"></i> Block</a>
+                                                            <a href="#" class="dropdown-item"><i
+                                                                        class="fas fa-search"></i> Search Profile</a>
+                                                            <a href="#" class="dropdown-item"><i
+                                                                        class="fas fa-user-friends"></i> See Friendship</a>
+                                                            <a href="#" class="dropdown-item"><i
+                                                                        class="fas fa-exclamation"></i> Find Support
+                                                                Profile</a>
+                                                            <a href="#" class="dropdown-item"><i class="fas fa-ban"></i>
+                                                                Block</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -177,18 +171,6 @@ $item = mysqli_fetch_row($run);
                     <span><i class="fa fa-graduation-cap"></i> Studied at <a
                                 href="#">G.C burewala </a></span>
                 </div>
-                <!--<div class="col-xl-5 user-posts">
-                    <div class="row">
-                        <form action="">
-                            <div class="col-xl-3 image">
-                                <img src="img/logo.jpg" alt="" class="rounded-circle" width="50px" height="50px">
-                            </div>
-                            <div class="col-xl-7">
-                                <input type="text" class="form-control">
-                            </div>
-                        </form>
-                    </div>
-                </div>-->
                 <div class="col-xl-8">
                     <div class="post">
                         <form id="add-post-feed-form" enctype="multipart/form-data">
@@ -280,9 +262,7 @@ $item = mysqli_fetch_row($run);
 
                                                                     </label>
                                                                 </div>
-
                                                             </div>
-
                                                             <button type="button" name=""
                                                                     id="image-post-btn"
                                                                     class="btn btn-primary"
@@ -316,13 +296,10 @@ $item = mysqli_fetch_row($run);
                                             <div class="body">
                                                 <div class="row">
                                                     <div class="col-xl-12">
-                                                                                <textarea name="description" id=""
-                                                                                          cols="60"
-                                                                                          rows="5"
-                                                                                          placeholder="Write Your Post"
-                                                                                          style="border: 1px solid #E5E5E5; border-radius: 5px">
-
-                                                                                </textarea>
+                                                        <textarea name="description" id="" cols="60" rows="5"
+                                                                  placeholder="Write Your Post"
+                                                                  style="border: 1px solid #E5E5E5; border-radius: 5px">
+                                                        </textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../404/.idea/404.iml" filepath="$PROJECT_DIR$/../404/.idea/404.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cms/.idea/CMS1.iml" filepath="$PROJECT_DIR$/../cms/.idea/CMS1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../CodeIgniter-3.1/.idea/CodeIgniter-3.1.iml" filepath="$PROJECT_DIR$/../CodeIgniter-3.1/.idea/CodeIgniter-3.1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Mychat/.idea/Mychat.iml" filepath="$PROJECT_DIR$/../Mychat/.idea/Mychat.iml" />
       <module fileurl="file://$PROJECT_DIR$/../clock/.idea/clock.iml" filepath="$PROJECT_DIR$/../clock/.idea/clock.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cms1/.idea/cms.iml" filepath="$PROJECT_DIR$/../cms1/.idea/cms.iml" />
@@ -14,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/../icon/.idea/icon.iml" filepath="$PROJECT_DIR$/../icon/.idea/icon.iml" />
       <module fileurl="file://$PROJECT_DIR$/../oop/.idea/oop.iml" filepath="$PROJECT_DIR$/../oop/.idea/oop.iml" />
       <module fileurl="file://$PROJECT_DIR$/../oop2/.idea/oop2.iml" filepath="$PROJECT_DIR$/../oop2/.idea/oop2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pages/.idea/pages.iml" filepath="$PROJECT_DIR$/../pages/.idea/pages.iml" />
       <module fileurl="file://$PROJECT_DIR$/../panel/.idea/panel.iml" filepath="$PROJECT_DIR$/../panel/.idea/panel.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sidebar/.idea/sidebar.iml" filepath="$PROJECT_DIR$/../sidebar/.idea/sidebar.iml" />
       <module fileurl="file://$PROJECT_DIR$/../text/.idea/text.iml" filepath="$PROJECT_DIR$/../text/.idea/text.iml" />

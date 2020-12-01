@@ -18,7 +18,7 @@ if (isset($_POST['signup'])) {
     } else {
 
 
-        $query = "INSERT INTO `user`(`email`, `password`, `first_name`, `last_name`, `birth_date`, `gender`) 
+        $query = "INSERT INTO `users`(`email`, `password`, `first_name`, `last_name`, `birth_date`, `gender`) 
                 VALUES('$email', '$password','$first_name', '$last_name', '$birth_date', '$gender')";
         if (mysqli_query($con, $query)) {
             $msg = "User Has Been Added";
