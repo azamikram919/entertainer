@@ -221,6 +221,7 @@ $total_pages = ceil($total_records / $record_per_page);*/
 </section>
 <script src="assets/jquery/jquery.min.js"></script>
 <script src="assets/bootstrap/dist/js/bootstrap.js"></script>
+<script src="assets/js/axios.js"></script>
 <script src="assets/js/app.js"></script>
 <!--<script src="assets/bootstrap-4.0.0/js/popper.min.js"></script>-->
 </body>

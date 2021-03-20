@@ -135,7 +135,7 @@ function getPostFeedListFunc() {
                         '                                    <a href="#" class="img">\n' +
                         '                                        <img src="img/post-image.jpg" alt="logo" class="rounded-circle"\n' +
                         '                                             width="40px"\n' +
-                        '                                             height="40px">\n' +
+                        '                                            height="40px">\n' +
                         '                                    </a>\n' +
                         '                                </div>\n' +
                         '                                <div class="col-xl-8 col-lg-8 col-md-8 mt-2">\n' +
@@ -152,7 +152,7 @@ function getPostFeedListFunc() {
                         '\n' +
                         '                        <div class="col-xl-12 col-lg-12 col-md-12 post-image">\n' +
                         '                            <a href="#">\n' +
-                        post_image +
+                                                            post_image +
                         '                            </a>\n' +
                         '                            <p class="p" style="padding-left: 20px; padding-right:15px;">' + item.post_description + '</p>\n' +
                         '                        </div>\n' +
@@ -165,9 +165,7 @@ function getPostFeedListFunc() {
                         '                                    <h6 style="color: #8e8c8c;"><i class="fa fa-thumbs-up mr-4"\n' +
                         '                                                                   style="color: #1685fa"></i>\n' +
                         '                                    </h6>\n' +
-                        // '                                        <i class="fa fa-heart" style="color: #f33636"></i>\n' +
-                        // '                                        <i class="fa fa-smile" style="color: #F1C40F"></i> 22</h6>\n' +
-                        '                                </a>\n' +
+                       '                                </a>\n' +
                         '                            </div>\n' +
                         '                            <div class="col-xl-6 col-lg-6 col-md-6 text-center">\n' +
                         '                                <a href="#">\n' +
@@ -182,8 +180,10 @@ function getPostFeedListFunc() {
                         '                            <div class="col-xl-4 col-lg-4 col-md-4 text-center">\n' +
 
                         '                                <a href="javascript:void(0)" class="feed-like" post_id="' + item.post_id + '">\n' +
-                        '                                    <h6 style="color: ' + like_color + '" class="like"> <i class="fa fa-thumbs-up"\n' +
-                        '                                                                  style="color: ;"></i>\n' +
+                        '                                    <h6 style="color: ' + like_color + '" class="like">' +
+                        '                                       <i class="fa fa-thumbs-up"\n' +
+                        '                                         style="color: ;">' +
+                        '                                               </i>\n' +
                         '                                        Like</h6>\n' +
                         '                                </a>\n' +
                         '                            </div>\n' +
